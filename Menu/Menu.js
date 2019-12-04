@@ -48,8 +48,9 @@ const makeMenu = menuItems => {
   component.appendChild(listContainer);
 
   const menu = document.querySelector(".menu-button");
-  menu.addEventListener("click", () => {
+  menu.addEventListener("click", e => {
     component.classList.toggle("menu--open");
+    e.stopPropagation();
   });
 
   return component;
@@ -58,3 +59,18 @@ const makeMenu = menuItems => {
 const menu = makeMenu(menuItems);
 
 document.querySelector(".header").appendChild(menu);
+
+document.body.addEventListener("click", e => {
+  // prevent firing when clicking menu bar, hamburger, or menu nav items
+  if (
+    !e.target.classList.contains("menu") &&
+    !e.target.classList.contains("menu-button") &&
+    !e.target.matches("li")
+  ) {
+    const menu = document.querySelector(".menu");
+    // only toggle if menu is visible
+    if (menu.classList.contains("menu--open")) {
+      menu.classList.toggle("menu--open");
+    }
+  }
+});
