@@ -166,3 +166,36 @@ data.map(article => {
   const newArticle = makeArticle(article);
   document.querySelector(".articles").appendChild(newArticle);
 });
+
+const makeForm = () => {
+  const component = document.createElement("div");
+  component.classList.add("form-component");
+
+  const header = document.createElement("h3");
+  header.textContent = "Create a new article";
+  component.appendChild(header);
+
+  const form = document.createElement("form");
+
+  const titleInput = document.createElement("input");
+  form.appendChild(titleInput);
+
+  const dateInput = document.createElement("input");
+  form.appendChild(dateInput);
+
+  const bodyInput = document.createElement("input");
+  form.appendChild(bodyInput);
+
+  const submitBtn = document.createElement("input");
+  submitBtn.setAttribute("type", "submit");
+  submitBtn.addEventListener("click", e => {
+    e.preventDefault();
+  });
+  form.appendChild(submitBtn);
+
+  component.appendChild(form);
+
+  return component;
+};
+
+document.body.appendChild(makeForm());
