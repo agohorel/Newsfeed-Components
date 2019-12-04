@@ -178,12 +178,16 @@ const makeForm = () => {
   const form = document.createElement("form");
 
   const titleInput = document.createElement("input");
+  titleInput.setAttribute("placeholder", "Title");
   form.appendChild(titleInput);
 
   const dateInput = document.createElement("input");
+  dateInput.setAttribute("placeholder", "Date");
   form.appendChild(dateInput);
 
-  const bodyInput = document.createElement("input");
+  const bodyInput = document.createElement("textarea");
+  bodyInput.setAttribute("placeholder", "Content");
+  bodyInput.setAttribute("rows", "6");
   form.appendChild(bodyInput);
 
   const submitBtn = document.createElement("input");
