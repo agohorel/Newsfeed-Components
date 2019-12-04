@@ -85,6 +85,21 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: "Die Hard IS A Christmas Movie",
+    date: "Dec. 25th, 2019",
+    firstParagraph: "I mean, come on!",
+    secondParagraph:
+      "What says Christmas more than Alan Rickman's bizarre German accent?",
+    thirdParagraph: "'Ho Ho Ho'?! Bruce Willis = Santa Claus. I rest my case"
+  },
+  {
+    title: "Y'all got any more of those Ryzen chips?",
+    date: "Dec. 24th, 2019",
+    firstParagraph: "I want one!",
+    secondParagraph: "Gimme gimme gimme",
+    thirdParagraph: "Throw in a Valve Index and a copy of HL: Alyx pls! Thanks."
   }
 ];
 
@@ -120,31 +135,31 @@ const makeParagraph = (paragraph, parent) => {
 };
 
 const makeArticle = data => {
-  const container = document.createElement("div");
-  container.classList.add("article");
+  const component = document.createElement("div");
+  component.classList.add("article");
 
   const title = document.createElement("h2");
   title.textContent = data.title;
-  container.appendChild(title);
+  component.appendChild(title);
 
   const date = document.createElement("p");
   date.classList.add("date");
   date.textContent = data.date;
-  container.appendChild(date);
+  component.appendChild(date);
 
-  makeParagraph(data.firstParagraph, container);
-  makeParagraph(data.secondParagraph, container);
-  makeParagraph(data.thirdParagraph, container);
+  makeParagraph(data.firstParagraph, component);
+  makeParagraph(data.secondParagraph, component);
+  makeParagraph(data.thirdParagraph, component);
 
   const expand = document.createElement("span");
   expand.classList.add("expandButton");
   expand.textContent = "Expand Article";
   expand.addEventListener("click", () => {
-    container.classList.toggle("article-open");
+    component.classList.toggle("article-open");
   });
-  container.appendChild(expand);
+  component.appendChild(expand);
 
-  return container;
+  return component;
 };
 
 data.map(article => {
