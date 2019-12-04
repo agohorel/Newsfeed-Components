@@ -113,6 +113,12 @@ const data = [
 
 */
 
+const makeParagraph = (paragraph, parent) => {
+  const p1 = document.createElement("p");
+  p1.textContent = paragraph;
+  parent.appendChild(p1);
+};
+
 const makeArticle = data => {
   const container = document.createElement("div");
   container.classList.add("article");
@@ -126,17 +132,9 @@ const makeArticle = data => {
   date.textContent = data.date;
   container.appendChild(date);
 
-  const p1 = document.createElement("p");
-  p1.textContent = data.firstParagraph;
-  container.appendChild(p1);
-
-  const p2 = document.createElement("p");
-  p2.textContent = data.secondParagraph;
-  container.appendChild(p2);
-
-  const p3 = document.createElement("p");
-  p3.textContent = data.thirdParagraph;
-  container.appendChild(p3);
+  makeParagraph(data.firstParagraph, container);
+  makeParagraph(data.secondParagraph, container);
+  makeParagraph(data.thirdParagraph, container);
 
   const expand = document.createElement("span");
   expand.classList.add("expandButton");
