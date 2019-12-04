@@ -167,6 +167,18 @@ data.map(article => {
   document.querySelector(".articles").appendChild(newArticle);
 });
 
+const getPostData = () => {
+  const title = document.querySelector(".post-title");
+  const date = document.querySelector(".post-date");
+  const body = document.querySelector(".post-body");
+
+  return {
+    title: title.value,
+    date: date.value,
+    firstParagraph: body.value
+  };
+};
+
 const makeForm = () => {
   const component = document.createElement("div");
   component.classList.add("form-component");
@@ -178,14 +190,17 @@ const makeForm = () => {
   const form = document.createElement("form");
 
   const titleInput = document.createElement("input");
+  titleInput.classList.add("post-title");
   titleInput.setAttribute("placeholder", "Title");
   form.appendChild(titleInput);
 
   const dateInput = document.createElement("input");
+  dateInput.classList.add("post-date");
   dateInput.setAttribute("placeholder", "Date");
   form.appendChild(dateInput);
 
   const bodyInput = document.createElement("textarea");
+  bodyInput.classList.add("post-body");
   bodyInput.setAttribute("placeholder", "Content");
   bodyInput.setAttribute("rows", "6");
   form.appendChild(bodyInput);
@@ -194,6 +209,7 @@ const makeForm = () => {
   submitBtn.setAttribute("type", "submit");
   submitBtn.addEventListener("click", e => {
     e.preventDefault();
+    document.querySelector(".articles").appendChild(makeArticle(getPostData()));
   });
   form.appendChild(submitBtn);
 
