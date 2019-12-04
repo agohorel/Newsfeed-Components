@@ -139,9 +139,21 @@ const makeArticle = data => {
   const component = document.createElement("div");
   component.classList.add("article");
 
+  const titleWrapper = document.createElement("div");
+  titleWrapper.classList.add("title-wrapper");
+  component.appendChild(titleWrapper);
+
   const postTitle = document.createElement("h2");
   postTitle.textContent = title;
-  component.appendChild(postTitle);
+  titleWrapper.appendChild(postTitle);
+
+  const closeBtn = document.createElement("button");
+  closeBtn.classList.add("close-button");
+  closeBtn.textContent = "×";
+  closeBtn.addEventListener("click", () => {
+    component.parentNode.removeChild(component);
+  });
+  titleWrapper.appendChild(closeBtn);
 
   const postDate = document.createElement("p");
   postDate.classList.add("date");
