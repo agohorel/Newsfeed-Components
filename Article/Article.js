@@ -184,9 +184,13 @@ const makeForm = () => {
   const component = document.createElement("div");
   component.classList.add("form-component");
 
+  const wrapper = document.createElement("div");
+  wrapper.classList.add("wrapper");
+  component.appendChild(wrapper);
+
   const header = document.createElement("h3");
   header.textContent = "Create a new article";
-  component.appendChild(header);
+  wrapper.appendChild(header);
 
   const form = document.createElement("form");
 
@@ -214,9 +218,9 @@ const makeForm = () => {
   });
   form.appendChild(submitBtn);
 
-  component.appendChild(form);
+  wrapper.appendChild(form);
 
   return component;
 };
 
-document.body.appendChild(makeForm());
+document.body.prepend(makeForm());

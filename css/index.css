@@ -30,6 +30,7 @@
   position: fixed;
   top: 0;
   z-index: 2;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.5);
 }
 .header h1 {
   margin: 0;
@@ -44,6 +45,10 @@
   cursor: pointer;
 }
 .menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   top: 75px;
   left: 0;
@@ -51,13 +56,15 @@
   width: var(--menu-width);
   height: 100vh;
   /* This give the height 100% of the screen or, '100% of View Height' */
-  background-color: #81c784;
-  border: 1px solid #004d40;
-  border-left: none;
-  border-bottom: none;
+  background-color: #256b28;
   z-index: 2;
   /* This set the layer level of the element, it has precendence over initial level of 1*/
   transition: 0.2s ease-out all;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.5);
+}
+.menu ul {
+  padding: 0;
+  margin: 0;
 }
 .menu ul li {
   list-style-type: none;
@@ -68,19 +75,15 @@
 .menu--open {
   transform: translateX(0);
 }
-.articles {
-  margin-top: 95px;
-}
 .article {
   margin: 20px 10%;
   padding: 0 20px 25px;
-  border: 1px solid lightgrey;
-  border-radius: 10px;
-  background-color: white;
+  border-radius: 5px;
+  background-color: var(--midgrey);
   position: relative;
   height: 50px;
   overflow: hidden;
-  box-shadow: 2px 2px 2px lightgrey;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.5);
   transition: 0.2s ease-out all;
 }
 .article h2 {
@@ -105,7 +108,11 @@
   color: grey;
   cursor: pointer;
   transform: translate(-50%);
-  background-color: white;
+  background-color: var(--darkgrey);
+  padding: 3px;
+}
+.article .expandButton:hover {
+  color: white;
 }
 .article-open {
   height: 400px;
@@ -114,6 +121,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 95px;
+}
+.form-component .wrapper {
+  background-color: var(--darkgrey);
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.5);
+}
+.form-component .wrapper h3 {
+  color: white;
 }
 .form-component form {
   display: flex;
@@ -123,6 +140,17 @@
   font-family: "Roboto", sans-serif;
   margin-bottom: 1rem;
   width: 50vw;
+}
+.form-component form input,
+.form-component form textarea {
+  background-color: var(--midgrey);
+  border: none;
+  color: white;
+  padding: 5px;
+}
+.form-component form input::placeholder,
+.form-component form textarea::placeholder {
+  color: white;
 }
 .form-component form input[type="submit"] {
   border: none;
@@ -136,10 +164,15 @@
   background: #070707;
   color: white;
 }
+:root {
+  --nearblack: #1c1c1c;
+  --darkgrey: #3c3c3c;
+  --midgrey: #6e6e6e;
+}
 html,
 body {
   margin: 0;
   padding: 0;
   font-family: "Roboto";
-  background-color: #fffef7;
+  background-color: var(--nearblack);
 }
