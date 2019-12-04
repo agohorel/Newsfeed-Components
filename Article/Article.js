@@ -164,5 +164,5 @@ const makeArticle = data => {
 
 data.map(article => {
   const newArticle = makeArticle(article);
-  document.body.appendChild(newArticle);
+  document.querySelector(".articles").appendChild(newArticle);
 });
