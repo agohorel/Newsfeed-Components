@@ -135,21 +135,22 @@ const makeParagraph = (paragraph, parent) => {
 };
 
 const makeArticle = data => {
+  const { title, date, firstParagraph, secondParagraph, thirdParagraph } = data;
   const component = document.createElement("div");
   component.classList.add("article");
 
-  const title = document.createElement("h2");
-  title.textContent = data.title;
-  component.appendChild(title);
+  const postTitle = document.createElement("h2");
+  postTitle.textContent = title;
+  component.appendChild(postTitle);
 
-  const date = document.createElement("p");
-  date.classList.add("date");
-  date.textContent = data.date;
-  component.appendChild(date);
+  const postDate = document.createElement("p");
+  postDate.classList.add("date");
+  postDate.textContent = date;
+  component.appendChild(postDate);
 
-  makeParagraph(data.firstParagraph, component);
-  makeParagraph(data.secondParagraph, component);
-  makeParagraph(data.thirdParagraph, component);
+  makeParagraph(firstParagraph, component);
+  makeParagraph(secondParagraph, component);
+  makeParagraph(thirdParagraph, component);
 
   const expand = document.createElement("span");
   expand.classList.add("expandButton");
