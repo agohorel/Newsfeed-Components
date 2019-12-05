@@ -177,6 +177,7 @@
   padding: 0.5rem 0;
   background: grey;
   transition: 0.1s ease-out all;
+  width: 100%;
 }
 .form-component form input[type="submit"]:hover {
   cursor: pointer;
