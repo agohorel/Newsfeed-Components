@@ -1,0 +1,198 @@
+/* This line is importing the font 'Roboto'. DO NOT change line 2*/
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Roboto Italic'), local('Roboto-Italic'), url(https://fonts.gstatic.com/s/roboto/v20/KFOkCnqEu92Fr1Mu51xIIzc.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxP.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Roboto Bold'), local('Roboto-Bold'), url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmWUlfBBc9.ttf) format('truetype');
+}
+/* Below this line is where you will start your work */
+/* It is important to note, you will not be writing any CSS in this file*/
+.header {
+  width: 100%;
+  height: 75px;
+  background-color: #388E3C;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.5);
+}
+.header h1 {
+  margin: 0;
+  font-size: 48px;
+}
+:root {
+  --menu-width: 350px;
+}
+.menu-button {
+  position: absolute;
+  left: 20px;
+  cursor: pointer;
+}
+.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 75px;
+  left: 0;
+  transform: translateX(calc(var(--menu-width) * -1));
+  width: var(--menu-width);
+  height: 100vh;
+  /* This give the height 100% of the screen or, '100% of View Height' */
+  background-color: #256b28;
+  z-index: 2;
+  /* This set the layer level of the element, it has precendence over initial level of 1*/
+  transition: 0.2s ease-out all;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.5);
+}
+.menu ul {
+  padding: 0;
+  margin: 0;
+}
+.menu ul li {
+  list-style-type: none;
+  font-size: 32px;
+  padding: 30px 0;
+  text-align: center;
+}
+.menu--open {
+  transform: translateX(0);
+}
+.article {
+  margin: 20px 10%;
+  padding: 0 20px 25px;
+  border-radius: 5px;
+  background-color: var(--midgrey);
+  position: relative;
+  height: 50px;
+  overflow: hidden;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.5);
+  transition: 0.2s ease-out all;
+}
+.article .title-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+.article .close-button {
+  width: 2rem;
+  height: 2rem;
+  margin-top: 15px;
+  background-color: #ac2121;
+  border: none;
+  font-size: 28px;
+  color: white;
+}
+.article .close-button:hover {
+  cursor: pointer;
+  color: black;
+  background-color: #960f0f;
+}
+.article h2 {
+  font-size: 28px;
+  padding: 0;
+  margin: 15px 0 0;
+}
+.article .date {
+  margin: 0;
+  font-size: 14px;
+}
+.article .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.article .expandButton {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  font-size: 12px;
+  color: grey;
+  cursor: pointer;
+  transform: translate(-50%);
+  background-color: var(--darkgrey);
+  padding: 3px;
+}
+.article .expandButton:hover {
+  color: white;
+}
+.article-open {
+  height: 400px;
+}
+.form-component {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 95px;
+}
+.form-component .wrapper {
+  background-color: var(--darkgrey);
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.5);
+}
+.form-component .wrapper h3 {
+  color: white;
+}
+.form-component form {
+  display: flex;
+  flex-direction: column;
+}
+.form-component form * {
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 1rem;
+  width: 50vw;
+}
+.form-component form input,
+.form-component form textarea {
+  background-color: var(--midgrey);
+  border: none;
+  color: white;
+  padding: 5px;
+}
+.form-component form input::placeholder,
+.form-component form textarea::placeholder {
+  color: white;
+}
+.form-component form input[type="submit"] {
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 0;
+  background: grey;
+  transition: 0.1s ease-out all;
+  width: 100%;
+}
+.form-component form input[type="submit"]:hover {
+  cursor: pointer;
+  background: #070707;
+  color: white;
+}
+:root {
+  --nearblack: #1c1c1c;
+  --darkgrey: #3c3c3c;
+  --midgrey: #6e6e6e;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto";
+  background-color: var(--nearblack);
+}

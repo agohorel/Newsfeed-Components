@@ -1,12 +1,12 @@
 /* This is the data we will be using, study it but don't change anything, yet. */
 
 let menuItems = [
-  'Students',
-  'Faculty',
+  "Students",
+  "Faculty",
   "What's New",
-  'Tech Trends',
-  'Music',
-  'Log Out'
+  "Tech Trends",
+  "Music",
+  "Log Out"
 ];
 
 /* 
@@ -33,3 +33,44 @@ let menuItems = [
   Step 6: add the menu component to the DOM.
   
 */
+
+const makeMenu = menuItems => {
+  const component = document.createElement("div");
+  component.classList.add("menu");
+  const listContainer = document.createElement("ul");
+
+  menuItems.map(item => {
+    const menuItem = document.createElement("li");
+    menuItem.textContent = item;
+    listContainer.appendChild(menuItem);
+  });
+
+  component.appendChild(listContainer);
+
+  const menu = document.querySelector(".menu-button");
+  menu.addEventListener("click", e => {
+    component.classList.toggle("menu--open");
+    e.stopPropagation();
+  });
+
+  return component;
+};
+
+const menu = makeMenu(menuItems);
+
+document.querySelector(".header").appendChild(menu);
+
+document.body.addEventListener("click", e => {
+  // prevent firing when clicking menu bar, hamburger, or menu nav items
+  if (
+    !e.target.classList.contains("menu") &&
+    !e.target.classList.contains("menu-button") &&
+    !e.target.matches("li")
+  ) {
+    const menu = document.querySelector(".menu");
+    // only toggle if menu is visible
+    if (menu.classList.contains("menu--open")) {
+      menu.classList.toggle("menu--open");
+    }
+  }
+});
